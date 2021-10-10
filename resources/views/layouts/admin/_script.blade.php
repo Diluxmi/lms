@@ -1,0 +1,13 @@
+    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+    <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
+    <script src="{{ asset('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
+    <script src="{{ asset('vendors/flot/jquery.flot.js') }}"></script>
+    <script src="{{ asset('vendors/flot/jquery.flot.resize.js') }}"></script>
+    <script src="{{ asset('vendors/flot/jquery.flot.categories.js') }}"></script>
+    <script src="{{ asset('vendors/flot/jquery.flot.fillbetween.js') }}"></script>
+    <script src="{{ asset('vendors/flot/jquery.flot.stack.js') }}"></script>
+    <script src="{{ asset('vendors/flot/jquery.flot.pie.js') }}"></script>
+    <script src="{{ asset('js/off-canvas.js') }}"></script>
+    <script src="{{ asset('assets/js/hoverable-collapse.js') }}"></script>
+    <script src="{{ asset('assets/js/misc.js') }}"></script>
+    <script src="{{ asset('assets/js/dashboard.js') }}"></script>
