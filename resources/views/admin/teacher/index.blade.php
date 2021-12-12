@@ -8,24 +8,29 @@
         <div class="float-left">
           <h2>Teacher</h2>
     </div>
-        </div>
+    <div class="float-right">
+  <a class="btn btn-primary btn-icon-spilt" href ="{{ route('user.create') }}"> Create Teacher</a>
+   </div>
+</div>
+  
         <br>
-        <table class="table">
+     <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th>Teacher Id</th>
-                        <th>Name</th>
+                        <th>First Name</th>
                         <th>Email</th>
-                        <th>Grade_id</th>
+                        <th>class</th>
+                        <th></th>
                     </tr>
-                </thead>
-<tbody>
+                    </thead>
+                     <tbody>
 @foreach ($teachers as $teacher)
                         <tr>
                             <td>{{ $teacher->id }}</td>
-                            <td>{{ $teacher->name }}</td>
-                            <td>{{ $teacher->email }}</td>
-                            <td>{{ $teacher->grade_id}}</td>
+                             <td>{{ $teacher->firstname}}</td>
+                            <td>{{ $teacher->user->email }}</td>
+                            <td>{{$teacher->grade.$teacher->section}}</td>
                             <td>
                                 <a href="{{ route('teacher.show',$teacher->id)}}" class="btn btn-info btn-icon-split"><span class="text">Show</span></a>
                                 <a href="{{ route('teacher.edit',$teacher->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
@@ -34,11 +39,12 @@
                         </tr>
                     @endforeach
                 </tbody>
+                
             </table>
-                   
-              
+            
       </div>
       </div>
-      </div>
+      </div>  
+
 
                @endsection

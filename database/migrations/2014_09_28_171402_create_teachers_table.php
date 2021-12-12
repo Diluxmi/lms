@@ -15,14 +15,21 @@ class CreateTeachersTable extends Migration
     {
             Schema::create('teachers', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
-                $table->string('email');
+                $table->enum('title',['Mr','Mrs','Miss']);
+                $table->string('firstname');
+                $table->string('lastname');
+                $table->string('phonenumber');
+                $table->string('address');
                 $table->string('qualification');
-                $table->foreignId('grade_id');
+                $table->string('experience');
+                $table->string('appointmentyear');
+               $table->string('grade');
+               $table->enum('section',['A','B','C','D','E']);
+                
                 
                 $table->timestamps();
     
-                $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
+               
                
         });
     }

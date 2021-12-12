@@ -17,7 +17,7 @@ class UserSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'Diluxmi',
+            
             'email' => 'abc@gmail.com',
             'role_id' => 1,
             'password' => Hash::make(12345678),
@@ -25,5 +25,6 @@ class UserSeeder extends Seeder
             'updated_at' => Carbon::now()->format('Y-m-d H:i:s')
             
         ]);
+       
     }
 }

@@ -11,7 +11,20 @@
 <div class="container-scroller">
  @include('layouts.admin._header')
 
- @include('layouts.admin._sidebar')
+
+            @switch (Auth::user()->role->name ) 
+              @case ('Admin')
+                @include('layouts.admin.sidebar._adminsidebar')
+                @break;
+             
+               @case ('Teacher')
+                @include('layouts.admin.sidebar._teachersidebar')
+               @break; 
+               
+                @case ('Student')
+                    @include('layouts.admin.sidebar._studentsidebar')
+                    @break; 
+            @endswitch
  <div class="container-fluid page-body-wrapper">
         <div id="theme-settings" class="settings-panel">
           <i class="settings-close mdi mdi-close"></i>
@@ -48,15 +61,15 @@
 
 @include('layouts.admin._footer')
 
-   
-   </div>
-
 
 
 </div>
+   </div>
+
+
     @include('layouts.admin._script')
     @yield('js')
-
+    
 </body>
 
 </html>

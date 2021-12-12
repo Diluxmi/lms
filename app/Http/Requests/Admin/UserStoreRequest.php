@@ -24,29 +24,59 @@ class UserStoreRequest extends FormRequest
     public function rules()
     {
         $rule = [];
-        if($type =$this->input('type')){
+        if($type =$this->input('role_id')){
+          
             switch($type){
-                case 'Admin';
+                case 1:
                 $rule =[
-                    'name' =>'required',
+                   
                     'email' => 'required|email|unique:users',
                     'role_id' => 'required',
                     'password' => 'required | confirmed | string | min:8',
                 ];
                 break;
-                case 'teacher';
+                case 2:
                 $rule =[
-                    'name' =>'required',
+                    'role_id'=>'required',
+                    'title'=>'required',
+                    'firstname' =>'required',
+                    'lastname' =>'required',
+                    'address' =>'required',
+                    'password' => 'required | confirmed | string | min:8',
+                    'phonenumber' =>'required',
                     'email' => 'required|email|unique:users',
-                    'grade_id' => 'required',
+                    'grade' => 'required',
+                    'section'=>'required',
                     'qualification' => 'required',
+                    'experience' => 'required',
+                    'appointmentyear' => 'required',
                 ];
                 break;
-               
- 
             }
         
          return $rule;
+        }
+        else if($index_no =$this->input('index_no')){
+            return [
+                        
+                'title'=>'required',
+                'firstname' =>'required',
+                'lastname' =>'required',
+                'address' =>'required',
+                'password' => 'required | confirmed | string | min:8',
+                'phonenumber' =>'required',
+                'email' => 'required|email|unique:users',
+                'grade' => 'required',
+                'section'=>'required',
+                'index_no' => 'required|unique:students',
+               
+            ];
+        }
+        else{
+        return[
+                'role_id'=>'required',
+                'index_no' => 'required',
+];
         }
     }
                   

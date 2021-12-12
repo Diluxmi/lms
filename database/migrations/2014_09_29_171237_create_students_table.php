@@ -15,15 +15,19 @@ class CreateStudentsTable extends Migration
     {
             Schema::create('students', function (Blueprint $table) {
                 $table->id();
-                $table->string('name');
-                $table->foreignId('grade_id');
-                $table->string('email')->unique();
+                $table->enum('title',['Mr','Miss']);
+                $table->string('firstname');
+                $table->string('lastname');
+                $table->string('grade');
+                $table->enum('section',['A','B','C','D','E',]);
+                $table->string('address');
+                $table->string('phonenumber');
                 $table->string('index_no')->unique();
-                $table->string('password');
+        
                 
                 $table->timestamps();
 
-                $table->foreign('grade_id')->references('id')->on('grades')->onDelete('cascade');
+                
                 
         });
     }

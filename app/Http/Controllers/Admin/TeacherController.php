@@ -15,32 +15,24 @@ use Illuminate\Support\Facades\Hash;
 class TeacherController extends Controller
 {
     public function index(){
-        $teachers= Teacher::with('role')->orderBy('id','desc')->paginate('12');
-        return view('admin.teacher.index', compact('teachers'));
+        $teachers = Teacher::with('user')->orderBy('id','desc')->paginate('12');
+        return view('admin.teacher.index',compact('teachers'));
         
     }
-               public function create(){
-                return view('admin.teacher.create');
+            
+            public function edit(Teacher $teacher){
+                $roles = Role::where('name','!=','student')->pluck('name','id')->toArray();
+                return view('admin.teacher.edit',compact('teacher','roles'));
             }
-        
-            public function store(TeacherStoreRequest $request){
-                $data = $request->validated();
-
-                Teacher :: create([
-                  'name'=>$data ['name'], 
-                  'email'=>$data['email'],
-                  'grade_id'=>$data['grade_id'],
-
-                ]);
-                return redirect()->route('teacher.index')->with('success', 'Teacher has been created successfuly!');
+            public function show(Teacher $teacher){
+                return view('admin.teacher.show',compact('teacher'));
             }
-            public function edit(){
-                return view('admin.teacher.edit');
+            public function delete(Teacher $teacher){
+                return view('admin.teacher.delete',compact('teacher'));
             }
-            public function delete(){
-                return view('admin.teacher.delete');
-            }
-            public function show(){
-                return view('admin.teacher.show');
+            
+            public function destroy(Teacher $teacher){
+                $teacher->delete();
+                return redirect()->route('teacher.index')->with('success', 'Teacher details has been deleted successfuly!');
             }
     }

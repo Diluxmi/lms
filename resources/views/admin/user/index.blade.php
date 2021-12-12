@@ -7,26 +7,25 @@
       <div class="card-header rounded border-primary">
         <div class="float-left">
           <h2>Admin</h2>
-    </div>
-        
-           
-        </div>
+    </div>   
+        <div class="float-right">
+  <a class="btn btn-primary btn-icon-spilt" href ="{{ route('user.create') }}"> Create User</a>
+            </div>
+</div>
         <br>
         <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th>Admin Id</th>
-                        <th>Name</th>
                         <th>Email</th>
                         <th>Role</th>
                         <th></th>
                     </tr>
-                </thead>
+                    </thead>
 <tbody>
 @foreach ($users as $user)
                         <tr>
                             <td>{{ $user->id }}</td>
-                            <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td>{{ $user->role->name}}</td>
                             <td>
@@ -37,6 +36,7 @@
                         </tr>
                     @endforeach
                 </tbody>
+                
             </table>
       </div>
       </div>

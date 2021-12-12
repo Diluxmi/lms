@@ -10,14 +10,21 @@ class Teacher extends Model
     use HasFactory;
 
     protected $fillable = [
-        'name',
-        'email',
-        'grade_id',
+        'title',
+        'firstname',
+        'lastname',
+        'grade',
+        'section',
         'qualification',
-
+        'phonenumber',
+        'address',
+        'experience',
+        'qualification',
+        'appointmentyear',
+      
        
     ];
-    public function users(){
+    public function user(){
 return $this->hasOne(User::class,'teacher_id');
 
     }
