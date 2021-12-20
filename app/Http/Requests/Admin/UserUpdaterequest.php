@@ -25,9 +25,11 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
+        $user=$this->user;
         $rule = [];
     
-        if(Auth::user()->role->name == 'Admin'){
+            if(Auth::user()->role->name=='Admin'){
+
             if($type =$this->input('role_id')){
             switch($type){
 
@@ -48,7 +50,7 @@ class UserUpdateRequest extends FormRequest
                 'address' =>'required',
                 'password' => 'required | confirmed | string | min:8',
                 'phonenumber' =>'required',
-                'email' => 'required|email|unique:users',
+                'email' => ['required', 'email', Rule::unique('users')->ignore($user)],
                 'grade' => 'required',
                 'section'=>'required',
                 'qualification' => 'required',
@@ -56,11 +58,10 @@ class UserUpdateRequest extends FormRequest
                 'appointmentyear' => 'required',
             ];
             break;
-            
-            }
-        return $rule;
+        }
+        }
         
-         } else if($index_no =$this->input('index_no')){
+         } else if(Auth::user()->role->mame='Student'){
             return [
                         
                 'title'=>'required',
@@ -76,6 +77,7 @@ class UserUpdateRequest extends FormRequest
                
             ];
         }
+
     else{
         return [
             'password' => 'nullable| confirmed |string| min:8',
@@ -83,5 +85,5 @@ class UserUpdateRequest extends FormRequest
     }
 }
 }
-}
+
 

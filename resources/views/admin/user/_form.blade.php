@@ -71,6 +71,12 @@ $(document).ready(function(){
         console.log('value');
         addField(val);
     });
+@if(isset($teacher))
+    addField(2);
+    $('#inp-role_id').val(2);
+    $('#inp-email').val("{{$teacher->user->email}}");
+
+@endif
     function addField(role){
         if(role == "2"){
             $('#name').removeClass('d-none');

@@ -58,6 +58,12 @@ public function show(Student $student){
 public function edit(Student $student){
     return view('admin.student.edit',compact('student')); 
 }
+public function update(Student $student,UserUpdateRequest $request){
+    $data=$request->validated();
+    $student->update($data);
+        
+            return redirect()->route('dashboard')->with('success', 'Your Profile Updated!');
+        }
 public function delete(Student $student){
        
     return view('admin.student.delete',compact('student'));

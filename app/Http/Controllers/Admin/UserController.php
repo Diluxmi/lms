@@ -80,7 +80,7 @@ class UserController extends Controller
     public function update(User $user,UserUpdateRequest $request){
         $data=$request->validated();
         if($request->input('password')){
-            $data['password'] = Hash::make($request->input('password'));
+        $data['password'] = Hash::make($request->input('password'));
         }else{$data['password'] = $user->password;}
          $user->update($data);
         
@@ -89,8 +89,6 @@ class UserController extends Controller
     
     
     public function delete(User $user){
-       
-        
         return view('admin.user.delete',compact('user'));
        
     }

@@ -44,6 +44,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'namespace' => 'A
         Route::group(['prefix' => '{teacher}'], function () {
         Route::get('/show','TeacherController@show')->name('teacher.show');
         Route::get('/edit','TeacherController@edit')->name('teacher.edit');
+        Route::patch('/','TeacherController@update')->name('teacher.update');
         Route::get('/delete','TeacherController@delete')->name('teacher.delete');
         Route::delete('/','TeacherController@destroy')->name('teacher.destroy');
 });

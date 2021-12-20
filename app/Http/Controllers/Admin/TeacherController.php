@@ -21,9 +21,16 @@ class TeacherController extends Controller
     }
             
             public function edit(Teacher $teacher){
+
                 $roles = Role::where('name','!=','student')->pluck('name','id')->toArray();
                 return view('admin.teacher.edit',compact('teacher','roles'));
             }
+            public function update(Teacher $teacher,UserUpdateRequest $request){
+                $data=$request->validated();
+                $teacher->update($data);
+                    
+                        return redirect()->route('dashboard')->with('success', 'Your Profile Updated!');
+                    }
             public function show(Teacher $teacher){
                 return view('admin.teacher.show',compact('teacher'));
             }
