@@ -74,7 +74,7 @@ $(document).ready(function(){
 @if(isset($teacher))
     addField(2);
     $('#inp-role_id').val(2);
-    $('#inp-email').val("{{$teacher->user->email}}");
+    $('#inp-email').val("{{$teacher->user->email}}");//get teacher email from user model
 
 @endif
     function addField(role){

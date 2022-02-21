@@ -32,7 +32,7 @@
 </li>
 
 <li class="nav-item">
-            <a class="nav-link" href="{{ route('student.index') }}">
+            <a class="nav-link" href="{{ route('student.gindex') }}">
             <i class="mdi mdi-account-plus mdi-18px"></i>
               <span class="menu-title">Student</span>
               <i class="menu-arrow"></i>
@@ -41,7 +41,7 @@
   
 </li>
 <li class="nav-item">
-            <a class="nav-link" href="{{ route('subject.index') }}">
+            <a class="nav-link" href="">
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               <span class="menu-title">Subject</span>
             </a>
@@ -56,7 +56,7 @@
 <li class="nav-item">
             <a class="nav-link" href="{{ route('assiegnment.index') }}">
               <i class="mdi mdi-table-large menu-icon"></i>
-              <span class="menu-title">Assiegnments</span>
+              <span class="menu-title">Assessments</span>
             </a>
 </li>
 

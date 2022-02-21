@@ -7,7 +7,7 @@
         <div class="card">
             <div class="card-header">
                 <div >
-                <a href="{{route('student.index')}}" class="float-left btn btn-primary btn-circle"><i class="fas fa-arrow-left"></i></a>
+                <a href="{{route('student.sindex')}}" class="float-left btn btn-primary btn-circle"><i class="fas fa-arrow-left"></i></a>
                     <h2 class="float-left ml-2">Student Details</h2>
                     
                 </div>
@@ -23,7 +23,7 @@
                 </thead>
                 <tbody>
                     <tr><td>Id:{{ $student->id }}</td></tr>
-                    <tr><td>Email:{{ $student->email }}</td></tr>
+                    <tr><td>Email:{{ $student->user->email }}</td></tr>
                     <tr><td> Grade:{{ $student->grade.$student->section}}</td></tr>
                 </tbody>
             </table>

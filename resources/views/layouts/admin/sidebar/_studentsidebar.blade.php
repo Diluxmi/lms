@@ -26,24 +26,14 @@
               <ul class="nav flex-column sub-menu">
               <li class="nav-item">
               <div> 
-  <a class="btn btn-primary btn-icon-spilt" href ="{{ route('user.create') }}"> Create User</a>
-            </div>
-</li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('user.index') }}">Admin</a>
-</li>
-              
-                  <li class="nav-item">
-                  <a class="nav-link" href="{{ route('teacher.index') }}">Teacher</a>
-</li>
-                <li class="nav-item">
-                  <a class="nav-link" href="{{ route('student.index') }}">Student</a>
+                  <a class="nav-link" href="{{ route('student.gindex') }}">Student</a>
               </li>
               </ul>
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('subject.index') }}">
+            <a class="nav-link" href="#">
               <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               <span class="menu-title">Subject</span>
             </a>
@@ -59,7 +49,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('assiegnment.index') }}">
               <i class="mdi mdi-table-large menu-icon"></i>
-              <span class="menu-title">Assiegnments</span>
+              <span class="menu-title">Assessments</span>
             </a>
           </li>
 

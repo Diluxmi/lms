@@ -8,22 +8,18 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h2>Create Student</h2>
+                    <h2>Create Topic</h2>
                 </div>
             </div>
             <div class="card-body">
-                @if (session('error'))
-                <div class="alert alert-warning">
-                    {{ session('error') }}
-                </div>
-                @endif
-                {!! Form::open()->route('student.store')->method('post') !!}
-                @include('admin.student._form')
+               
+                {!! Form::open()->route('topic.store',[$subject->id])->method('post') !!}
+                @include('admin.topic._form')
                 <div class="row">
                     <div class="col-12">
                         <div class="float-right">
                         <button class="btn btn-success btn-md">Create</button>
-                        <a class="btn btn-dark btn-md" href="{{ route('student.sindex') }}"><i class="mdi mdi-cancel"></i>Cancel</a>
+                        <a class="btn btn-dark btn-md" href="{{ route('topic.index',$subject->id) }}"><i class="mdi mdi-cancel"></i>Cancel</a>
                         </div>
                     </div>
                 </div>

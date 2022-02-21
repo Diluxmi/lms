@@ -28,4 +28,7 @@ class Teacher extends Model
 return $this->hasOne(User::class,'teacher_id');
 
     }
+    public function subject(){
+        return $this->belongsToMany(Subject::class,'subject_id');
+    }
 }

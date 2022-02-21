@@ -43,6 +43,18 @@
 </div>
 </div>
 
+@section('js')
+<script>
+   
+@if(isset($student))
+   
+    $('#inp-email').val("{{$student->user->email}}");
+
+@endif
+
+    
+</script>
+@endsection
 
 
 

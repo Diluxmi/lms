@@ -14,28 +14,24 @@
             </a>
           </li>
           <li class="nav-item">
-                  <a class="nav-link" href="{{ route('student.index') }}">Student</a>
+                  <a class="nav-link" href="{{ route('student.gindex') }}">Student</a>
+
               </li>
           
 
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('grade.index') }}">
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
-              <span class="menu-title">Class</span>
-            </a>
-          </li>
+          <
 
 
           <li class="nav-item">
-            <a class="nav-link" href="{{ route('subject.index') }}">
-              <i class="mdi mdi-format-list-bulleted menu-icon"></i>
+            <a class="nav-link" href= "{{route('subject.index')}}">
+            <i class="mdi mdi-format-list-bulleted menu-icon"></i>
               <span class="menu-title">Subject</span>
+              </li>
             </a>
           </li>
-          <li class="nav-item">
-          
+
+          <li class="nav-item"> 
             <a class="nav-link" href="{{ route('exam.index') }}">
-            
               <i class="mdi mdi-chart-bar menu-icon"></i><span class="menu-title">Exam</span>
             </a>
           </li>
@@ -43,7 +39,7 @@
           <li class="nav-item">
             <a class="nav-link" href="{{ route('assiegnment.index') }}">
               <i class="mdi mdi-table-large menu-icon"></i>
-              <span class="menu-title">Assiegnments</span>
+              <span class="menu-title">Assessgnments</span>
             </a>
           </li>
 

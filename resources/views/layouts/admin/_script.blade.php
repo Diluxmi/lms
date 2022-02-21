@@ -1,4 +1,4 @@
-    <script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
+<script src="{{ asset('vendors/js/vendor.bundle.base.js') }}"></script>
     <script src="{{ asset('vendors/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('vendors/bootstrap-datepicker/bootstrap-datepicker.min.js') }}"></script>
     <script src="{{ asset('vendors/flot/jquery.flot.js') }}"></script>

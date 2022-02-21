@@ -21,8 +21,16 @@ class Student extends Model
 
        
     ];
+    protected $appends =[
+    'grade_section',
+
+    ];
     public function user(){
         
         return $this->hasOne(User::class,'student_id');
+    }
+    public function getGradeSectionAttribute(){
+        return $this->grade.$this->section;
+
     }
 }

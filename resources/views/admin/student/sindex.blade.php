@@ -1,5 +1,5 @@
 @extends('layouts.admin.master')
-@section('title','index')
+@section('title','sindex')
 @section('content')
 <div class="row">
   <div class="col-12 text-dark">
@@ -27,7 +27,7 @@
                
                <tr>
                @foreach ($students as $student)
-             <td>{{ $student->id}}</td>
+              <td>{{ $student->id}}</td>
              <td>{{ $student->firstname}}</td>
              <td>{{ $student->user->email}}</td>
              <td>{{ $student->grade.$student->section}}</td>

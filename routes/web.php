@@ -38,7 +38,7 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'namespace' => 'A
     
 });
 
-    Route::group(['prefix' => 'teacher',], function () {
+    Route::group(['prefix' => 'teachers',], function () {
         Route::get('/', 'TeacherController@index')->name('teacher.index');
 
         Route::group(['prefix' => '{teacher}'], function () {
@@ -53,7 +53,8 @@ Route::group(['prefix' => 'dashboard', 'middleware' => 'auth', 'namespace' => 'A
 });
 Route::group(['prefix' => 'student',], function () {
    
-    Route::get('/', 'StudentController@index')->name('student.index');
+    Route::get('/', 'StudentController@gindex')->name('student.gindex');
+    Route::get('/students/{grade_section?}', 'StudentController@sindex')->name('student.sindex');
     Route::get('/create','StudentController@create')->name('student.create');
     Route::post('/store','StudentController@store')->name('student.store');
 
@@ -70,9 +71,33 @@ Route::group(['prefix' => 'student',], function () {
 Route::group(['prefix' =>'grade',], function () {
     Route::get('/', 'GradeController@index')->name('grade.index');
 });
+
+
 Route::group(['prefix' =>'subject',], function () {
     Route::get('/', 'SubjectController@index')->name('subject.index');
+    Route::get('/create','SubjectController@create')->name('subject.create');
+    Route::post('/store','SubjectController@store')->name('subject.store');
+    
+    Route::group(['prefix' => '{subject}'], function () {
+        Route::get('/', 'TopicController@index')->name('topic.index');
+        Route::get('/topiccreate','TopicController@create')->name('topic.create');
+        Route::post('/topicstore','TopicController@store')->name('topic.store');
+    
+        Route::get('/topicedit','TopicController@edit')->name('topic.edit');
+        Route::get('/topicdelete','TopicController@delete')->name('topic.delete');
+        Route::delete('/topic','TopicController@destroy')->name('topic.destroy');
+
+        Route::get('/edit','SubjectController@edit')->name('subject.edit');
+        Route::patch('/','StudentController@update')->name('subject.update');
+        Route::get('/delete','SubjectController@delete')->name('subject.delete');
+        Route::delete('/','SubjectController@destroy')->name('subject.destroy');
+    });
 });
+
+
+
+   
+
 
 Route::group(['prefix' =>'exam',], function () {
     Route::get('/', 'ExamController@index')->name('exam.index');

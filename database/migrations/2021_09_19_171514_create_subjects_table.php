@@ -15,12 +15,14 @@ class CreateSubjectsTable extends Migration
     {
         Schema::create('subjects', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('subject');
             $table->string('grade');
-            $table->string('lessons');
+            $table->string('section');
+            $table->foreignId('created_by');
            
 
             $table->timestamps();
+            $table->foreign('created_by')->references('id')->on('teachers')->onDelete('cascade');
             
 
             

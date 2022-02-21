@@ -25,10 +25,11 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
+       $teacher=$this->teacher->user;
+        $student=$this->student->user;
         $user=$this->user;
         $rule = [];
     
-            if(Auth::user()->role->name=='Admin'){
 
             if($type =$this->input('role_id')){
             switch($type){
@@ -48,9 +49,9 @@ class UserUpdateRequest extends FormRequest
                 'firstname' =>'required',
                 'lastname' =>'required',
                 'address' =>'required',
-                'password' => 'required | confirmed | string | min:8',
+                'password' => 'nullable | confirmed | string | min:8',
                 'phonenumber' =>'required',
-                'email' => ['required', 'email', Rule::unique('users')->ignore($user)],
+                'email' => ['required', 'email', Rule::unique('users')->ignore($teacher)],
                 'grade' => 'required',
                 'section'=>'required',
                 'qualification' => 'required',
@@ -59,9 +60,9 @@ class UserUpdateRequest extends FormRequest
             ];
             break;
         }
-        }
+        return $rule;
         
-         } else if(Auth::user()->role->mame='Student'){
+    }else if(Auth::user()->role->name=='Student'){
             return [
                         
                 'title'=>'required',
@@ -70,7 +71,7 @@ class UserUpdateRequest extends FormRequest
                 'address' =>'required',
                 'password' => 'required | confirmed | string | min:8',
                 'phonenumber' =>'required',
-                'email' => 'required|email|unique:users',
+                'email' => ['required', 'email', Rule::unique('users')->ignore($student)],
                 'grade' => 'required',
                 'section'=>'required',
                 'index_no' => 'required|unique:students',
@@ -78,12 +79,5 @@ class UserUpdateRequest extends FormRequest
             ];
         }
 
-    else{
-        return [
-            'password' => 'nullable| confirmed |string| min:8',
-        ];
-    }
 }
 }
-
-

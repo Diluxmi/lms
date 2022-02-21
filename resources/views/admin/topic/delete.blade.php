@@ -7,14 +7,14 @@
         <div class="card">
             <div class="card-header">
                 <div class = "float-left">
-                <h4> Are sure you want to delete this Teacher?</h4>
+                <h4> Are sure you want to delete this Topic</h4>
                 </div>
             </div>
             <div class="card-body">
-                {!! Form::open()->route('teacher.destroy',[$teacher->id])->method('delete') !!}
+                {!! Form::open()->route('topic.destroy',[$subject->id])->method('delete') !!}
            
             <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i> Delete </button>
-            <a href="{{ route('teacher.index')}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
+<a href="{{ route('topic.index',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
 
 {!! Form::close() !!}
         </div>

@@ -14,7 +14,7 @@
                 {!! Form::open()->route('student.destroy',[$student->id])->method('delete') !!}
            
             <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i> Delete </button>
-<a href="{{ route('student.index')}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
+<a href="{{ route('student.sindex')}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
 
 {!! Form::close() !!}
         </div>
