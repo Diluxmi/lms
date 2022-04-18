@@ -14,13 +14,15 @@ class SubjectController extends Controller
     public function index(){
        
         $subjects= Subject::orderBy('id', 'desc')->paginate('12');
-        return view('admin.subject.index',compact('subjects'));
+        $roles = Role::where('name','!=','student')->pluck('name','id')->toArray();
+        return view('admin.subject.index',compact('subjects','roles'));
      
     }
 
     public function create(){
         $subjects= Subject::orderBy('id', 'desc')->paginate('12');
         $roles = Role::where('name','==','teacher')->pluck('name','id')->toArray();
+        
         return view('admin.subject.create',compact('subjects','roles'));
     }
 

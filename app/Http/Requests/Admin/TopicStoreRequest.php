@@ -27,7 +27,7 @@ class TopicStoreRequest extends FormRequest
                 return [
                    
                     'topicname' => 'required',
-                    'content' => 'required',
+                   
                     
                     
                 ];

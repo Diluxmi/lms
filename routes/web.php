@@ -81,6 +81,8 @@ Route::group(['prefix' =>'subject',], function () {
     Route::group(['prefix' => '{subject}'], function () {
         Route::get('/', 'TopicController@index')->name('topic.index');
         Route::get('/topiccreate','TopicController@create')->name('topic.create');
+        Route::get('/subtopic','SubtopicController@index')->name('subtopic.index');
+        Route::get('/subtopiccreate','SubtopicController@create')->name('subtopic.create');
         Route::post('/topicstore','TopicController@store')->name('topic.store');
     
         Route::get('/topicedit','TopicController@edit')->name('topic.edit');

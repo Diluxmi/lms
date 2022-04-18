@@ -1,111 +1,135 @@
-<nav class="navbar col-lg-12 col-12 p-lg-0 fixed-top d-flex flex-row">
-          <div class="navbar-menu-wrapper d-flex align-items-stretch justify-content-between"> 
-            <a class="navbar-brand brand-logo-mini align-self-center d-lg-none" href="index.html"><img src=""alt=''/></a>
-            <button class="navbar-toggler navbar-toggler align-self-center mr-2" type="button" data-toggle="minimize">
-              <i class="mdi mdi-menu"></i>
+
+
+        <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+          <div class="navbar-menu-wrapper d-flex align-items-stretch">
+            <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
+              <span class="mdi mdi-chevron-double-left"></span>
             </button>
+            <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+              <a class="navbar-brand brand-logo-mini" href="index.html"><img src="../assets/images/logo-mini.svg" alt="logo" /></a>
+            </div>
             <ul class="navbar-nav">
               <li class="nav-item dropdown">
-                <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-bell-outline"></i>
-                  <span class="count count-varient1">7</span>
+                <a class="nav-link" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                  <i class="mdi mdi-email-outline"></i>
                 </a>
-                <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="notificationDropdown">
-                  <h6 class="p-3 mb-0">Notifications</h6>
+                <div class="dropdown-menu dropdown-menu-left navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+                  <h6 class="p-3 mb-0 font-weight-semibold">Messages</h6>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
                     <div class="preview-thumbnail">
-                      <img src="assets/images/faces/face4.jpg" alt="" class="profile-pic" />
+                      <img src="../assets/images/faces/face1.jpg" alt="image" class="profile-pic">
                     </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> Dany Miles <span class="text-small text-muted">commented on your photo</span>
-                      </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                    <img src="{{ asset('images/faces/face3.jpg' ) }}" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> James <span class="text-small text-muted">posted a photo on your wall</span>
-                      </p>
-                    </div>
-                  </a>
-                  <a class="dropdown-item preview-item">
-                    <div class="preview-thumbnail">
-                    <img src="{{ asset('images/faces/face2.jpg' ) }}" alt="" class="profile-pic" />
-                    </div>
-                    <div class="preview-item-content">
-                      <p class="mb-0"> Alex <span class="text-small text-muted">just mentioned you in his post</span>
-                      </p>
+                    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                      <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Mark send you a message</h6>
+                      <p class="text-gray mb-0"> 1 Minutes ago </p>
                     </div>
                   </a>
                   <div class="dropdown-divider"></div>
-                  <p class="p-3 mb-0">View all activities</p>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="../assets/images/faces/face6.jpg" alt="image" class="profile-pic">
+                    </div>
+                    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                      <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Cregh send you a message</h6>
+                      <p class="text-gray mb-0"> 15 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item preview-item">
+                    <div class="preview-thumbnail">
+                      <img src="../assets/images/faces/face7.jpg" alt="image" class="profile-pic">
+                    </div>
+                    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                      <h6 class="preview-subject ellipsis mb-1 font-weight-normal">Profile picture updated</h6>
+                      <p class="text-gray mb-0"> 18 Minutes ago </p>
+                    </div>
+                  </a>
+                  <div class="dropdown-divider"></div>
+                  <h6 class="p-3 mb-0 text-center text-primary font-13">4 new messages</h6>
                 </div>
               </li>
-              <li class="nav-item dropdown d-none d-sm-flex">
-                <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-email-outline"></i>
-                  <span class="count count-varient2">5</span>
+              <li class="nav-item dropdown ms-3">
+                <a class="nav-link" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
+                  <i class="mdi mdi-bell-outline"></i>
                 </a>
-                <div class="dropdown-menu navbar-dropdown navbar-dropdown-large preview-list" aria-labelledby="messageDropdown">
-                  <h6 class="p-3 mb-0">Messages</h6>
+                <div class="dropdown-menu dropdown-menu-left navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+                  <h6 class="px-3 py-3 font-weight-semibold mb-0">Notifications</h6>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-success">Request</span>
-                      <p class="text-small text-muted ellipsis mb-0"> Suport needed for user123 </p>
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-success">
+                        <i class="mdi mdi-calendar"></i>
+                      </div>
                     </div>
-                    <p class="text-small text-muted align-self-start"> 4:10 PM </p>
+
+                  
+                
+
+                    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                      <h6 class="preview-subject font-weight-normal mb-0">New order recieved</h6>
+                      <p class="text-gray ellipsis mb-0"> 45 sec ago </p>
+                    </div>
                   </a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-warning">Invoices</span>
-                      <p class="text-small text-muted ellipsis mb-0"> Invoice for order is mailed </p>
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-warning">
+                        <i class="mdi mdi-settings"></i>
+                      </div>
                     </div>
-                    <p class="text-small text-muted align-self-start"> 4:10 PM </p>
+                    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                      <h6 class="preview-subject font-weight-normal mb-0">Server limit reached</h6>
+                      <p class="text-gray ellipsis mb-0"> 55 sec ago </p>
+                    </div>
                   </a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item preview-item">
-                    <div class="preview-item-content flex-grow">
-                      <span class="badge badge-pill badge-danger">Projects</span>
-                      <p class="text-small text-muted ellipsis mb-0"> New project will start tomorrow </p>
+                    <div class="preview-thumbnail">
+                      <div class="preview-icon bg-info">
+                        <i class="mdi mdi-link-variant"></i>
+                      </div>
                     </div>
-                    <p class="text-small text-muted align-self-start"> 4:10 PM </p>
+                    <div class="preview-item-content d-flex align-items-start flex-column justify-content-center">
+                      <h6 class="preview-subject font-weight-normal mb-0">Kevin karvelle</h6>
+                      <p class="text-gray ellipsis mb-0"> 11:09 PM </p>
+                    </div>
                   </a>
-                  <h6 class="p-3 mb-0">See all activity</h6>
+                  <div class="dropdown-divider"></div>
+                  <h6 class="p-3 font-13 mb-0 text-primary text-center">View all notifications</h6>
                 </div>
-              </li>
-              <li class="nav-item nav-search border-0 ml-1 ml-md-3 ml-lg-5 d-none d-md-flex">
-                <form class="nav-link form-inline mt-2 mt-md-0">
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Search" />
-                    <div class="input-group-append">
-                      <span class="input-group-text">
-                        <i class="mdi mdi-magnify"></i>
-                      </span>
-                    </div>
-                  </div>
-                </form>
               </li>
             </ul>
-            <ul class="navbar-nav navbar-nav-right ml-lg-auto">
-              <li class="nav-item dropdown d-none d-xl-flex border-0">
-                <a class="nav-link dropdown-toggle" id="languageDropdown" href="#" data-toggle="dropdown">
-                  <i class="mdi mdi-earth"></i> English </a>
-                <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                  <a class="dropdown-item" href="#"> French </a>
-                  <a class="dropdown-item" href="#"> Spain </a>
-                  <a class="dropdown-item" href="#"> Latin </a>
-                  <a class="dropdown-item" href="#"> Japanese </a>
+            <ul class="navbar-nav navbar-nav-right">
+              <li class="nav-item nav-logout d-none d-md-block me-3">
+              <input type="text" class="form-control border-0" placeholder="Search" />
+                
+              </li>
+              
+              <li class="nav-item nav-profile dropdown d-none d-md-block">
+                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav-profile-text">English </div>
+                </a>
+                <div class="dropdown-menu center navbar-dropdown" aria-labelledby="profileDropdown">
+                  <a class="dropdown-item" href="#">
+                    <i class="flag-icon flag-icon-bl me-3"></i> Tamil </a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#">
+                    <i class="flag-icon flag-icon-cn me-3"></i> Tamil </a>
+                  <div class="dropdown-divider"></div>
+              
+            
+                  
                 </div>
               </li>
-              <li class="nav-item nav-profile dropdown border-0">
-                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-toggle="dropdown">
-                  <img class="nav-profile-img mr-2" alt="" src="{{ asset('images/faces/face2.jpg' ) }}" />
-                  <span class="profile-name">Henry Klein</span>
+
+              <li class="nav-item nav-profile dropdown d-none d-md-block">
+                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                  <div class="nav-profile-text">Profile </div>
                 </a>
-                <div class="dropdown-menu navbar-dropdown w-100" aria-labelledby="profileDropdown">
-                  <a class="dropdown-item" href="#">
-                    <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                <div class="dropdown-menu center navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
                   <a class="dropdown-item" href="{{ route('logout') }}"
                               onclick="event.preventDefault();
                                      document.getElementById('logout-form').submit();">
@@ -113,8 +137,12 @@
                         @csrf
                     </form>
                   <i class="mdi mdi-logout mr-2 text-primary"></i> Logout </a>
+                  
                 </div>
               </li>
+
+        
+
             </ul>
             <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
               <span class="mdi mdi-menu"></span>

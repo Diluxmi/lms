@@ -14,14 +14,15 @@ class TopicController extends Controller
      return view('admin.topic.index',compact('subject','topics'));
  }
  public function create(Subject $subject){
-    return view('admin.topic.create',compact('subject'));
+   
+     $roles= Role::where('name','==','teacher')->pluck('name','id')->toArray();
+    return view('admin.topic.create',compact('subject'.'roles'));
 } 
 public function store(Subject $subject,TopicStoreRequest $request){
     $data = $request->validated();
   
         $topics= Topic:: create([
             'topicname'=>$data['topicname'],
-            'content'=>$data['content'],
             'subject_id'=>$subject->id,
         ]);
            

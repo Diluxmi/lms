@@ -6,43 +6,33 @@
   <div class="col-12 text-dark">
     <div class="card shadow p-3 mb-5 bg-white rounded border-info">
       <div class="card-header rounded border-primary">
-        <div class="float-left">
+        <div class="float-start">
           <h2>Topic</h2>
-    </div>
-        <div class ="float-right">
-    <a class="btn btn-primary btn-icon-spilt" href ="{{ route('topic.create',$subject->id)}}"> Create Topics</a>
         </div>
-</div>
+        <div class ="float-end">
+          @if(Auth::user()->role->name=='teacher'){
+    <a class="btn btn-primary btn-icon-spilt" href ="{{ route('topic.create',$subject->id)}}"> Create Topics</a>
+          }
+          @endif
+  
+  </div>
+      </div>
         <br>
         <table class="table">
-                <thead class="thead-dark">
-                    <tr><th>Subject Id</th>
-                        <th> Topic Name</th>
-                        <th>Content</th>
-                        <th> </th>
-                        
-                        <th></th>
-                    </tr>
-                    
-                    </thead>  
                <tbody>
-               
-               <tr>
-               @foreach ($topics as $topic)
-               <td>{{$subject->id}}</td>
-             <td>{{ $topic->topicname}}</td>
-             <td>{{ $topic->content}}</td>
-             <td> </td>
-                           
-                            
-                            <td>
-                               
-                                <a href="{{ route('topic.edit',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
-                                <a href="{{ route('topic.delete',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
-                                                              </td>
-                               
-                        </tr>
-                    @endforeach 
+            
+              @foreach ($topics as $i=>$topic)
+              
+              <tr><td class="col-md-8"><h2>{{$i+1 }}{{' . '.$topic->topicname}}</h2></td>
+              <td>
+              <a href="{{ route('subtopic.index',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Subtopic</span></a>
+              @if(Auth::user()->role->name=='teacher'){ 
+              <a href="{{ route('topic.edit',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
+              }
+              @endif
+              </td>
+              </tr>
+              @endforeach 
                 </tbody>
                 
             </table>

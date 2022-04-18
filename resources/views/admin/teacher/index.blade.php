@@ -5,12 +5,13 @@
   <div class="col-12 text-dark">
     <div class="card shadow p-3 mb-5 bg-white rounded border-info">
       <div class="card-header rounded border-primary">
-        <div class="float-left">
+      
+        <div class="float-start">
           <h2>Teacher</h2>
-    </div>
-    <div class="float-right">
+</div>
+    <div class="float-end">
   <a class="btn btn-primary btn-icon-spilt" href ="{{ route('user.create') }}"> Create Teacher</a>
-   </div>
+</div>
 </div>
   
         <br>
