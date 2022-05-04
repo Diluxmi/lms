@@ -102,10 +102,37 @@ Route::group(['prefix' =>'subject',], function () {
 
 
 Route::group(['prefix' =>'exam',], function () {
-    Route::get('/', 'ExamController@index')->name('exam.index');
+    Route::get('/', 'ExamController@sindex')->name('exam.sindex');
+    Route::get('/exam create', 'ExamController@create')->name('exam.create');
+    Route::post('/store','ExamController@store')->name('exam.store');
+
+Route::get('/drop1','ExamController@dropdown')->name('get.subject');
+
+    Route::get('/edit','ExamController@edit')->name('exam.edit');
+    Route::patch('/up','ExamController@update')->name('exam.update');
+    Route::get('/delete','ExamController@delete')->name('exam.delete');
+    Route::delete('/','ExamController@destroy')->name('exam.destroy');
 });
-Route::group(['prefix' =>'assiegnment',], function () {
-    Route::get('/', 'AssiegnmentController@index')->name('assiegnment.index');
+
+
+Route::group(['prefix' =>'assessment',], function () {
+    Route::get('/', 'AssessmentController@index')->name('assessment.index');
+    Route::get('/Assessment create', 'AssessmentController@create')->name('assessment.create');
+    Route::post('/store','AssessmentController@store')->name('assessment.store');
+
+    Route::get('/edit','AssessmentController@edit')->name('assessment.edit');
+    Route::patch('/up','AssessmentController@update')->name('assessment.update');
+    Route::get('/delete','AssessmentController@delete')->name('assessment.delete');
+    Route::delete('/','AssessmentController@destroy')->name('assessment.destroy');
+
+});
+
+Route::group(['prefix' =>'report',], function () {
+    Route::get('/', 'ReportController@term1')->name('report.term1');
+    Route::get('/term2', 'ReportController@term2')->name('report.term2');
+    Route::get('/term3', 'ReportController@term3')->name('report.term3');
+
+    
 });
 });
    

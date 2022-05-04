@@ -21,15 +21,16 @@ class TeacherController extends Controller
     }
             
             public function edit(Teacher $teacher){
-
+                $teachers = Teacher::with('user')->orderBy('id','desc')->paginate('12');
                 $roles = Role::where('name','!=','student')->pluck('name','id')->toArray();
-                return view('admin.teacher.edit',compact('teacher','roles'));
+dd('$teacher');
+                return view('admin.teacher.edit',compact('teachers','roles'));
             }
 
             public function update(Teacher $teacher,UserUpdateRequest $request){
                 $data=$request->validated();
                 $teacher->update($data);
-                    
+                    dd($teacher);
                 return redirect()->route('teacher.index')->with('success', 'Your Profile Updated!');
                     }
 

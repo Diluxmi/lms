@@ -9,7 +9,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h2>Create Topic</h2>
+                    <h2>Create Subject</h2>
                 </div>
             </div>
 
@@ -22,8 +22,8 @@
                         <div class="float-right">
                             <div>
                             </div>
-                        <button class="btn btn-success btn-md">Create</button>
-                        <a class="btn btn-dark btn-md" href="{{ route('subject.index') }}"><i class="mdi mdi-cancel"></i>Cancel</a>
+                        <button class="btn btn-primary">Create</button>
+                        <a class="btn btn-dark btn-md" href="{{ route('subject.index') }}">Cancel</a>
                         </div>
                     </div>
                 </div>

@@ -76,7 +76,7 @@ class StudentController extends Controller
      ]);
      $grade_section = $student->grade.$student->section;
      
-     return redirect()->route('student.sindex',$grade_section)->with('success','user create succesfull');
+     return redirect()->route('student.sindex',$grade_section)->with('success','Student create succesfuly');
 }
 
 public function show(Student $student){
@@ -85,7 +85,9 @@ public function show(Student $student){
 } 
 
 public function edit(Student $student){
-    return view('admin.student.edit',compact('student')); 
+    $students= Student::with('user')->orderBy('id','desc')->paginate('12');
+    
+    return view('admin.student.edit',compact('students')); 
 }
 
 public function update(UserUpdateRequest $request,Student $student){

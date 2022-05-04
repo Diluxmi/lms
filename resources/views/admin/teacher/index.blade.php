@@ -15,6 +15,12 @@
 </div>
   
         <br>
+        <div class="card-body">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
      <table class="table">
                 <thead class="thead-dark">
                     <tr>
@@ -34,8 +40,8 @@
                             <td>{{$teacher->grade.$teacher->section}}</td>
                             <td>
                                 <a href="{{ route('teacher.show',$teacher->id)}}" class="btn btn-info btn-icon-split"><span class="text">Show</span></a>
-                                <a href="{{ route('teacher.edit',$teacher->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
-                                <a href="{{ route('teacher.delete',$teacher->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
+                                <a href="{{ route('teacher.edit',$teacher->id)}}" class="btn btn-dark btn-md"><span class="text">Edit</span></a>
+                                <a href="{{ route('teacher.delete',$teacher->id)}}" class="btn btn-danger"><span class="text">Delete</span></a>
                             </td>
                         </tr>
                     @endforeach

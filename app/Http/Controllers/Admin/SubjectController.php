@@ -36,16 +36,16 @@ class SubjectController extends Controller
             'section'=>$data['section'],
            'created_by'=>$created_by,
         ]);
- return redirect()->route('subject.index')->with('success','Subject create succesfull');
+ return redirect()->route('subject.index')->with('success','Subject create succesfuly!');
          
     }
     public function edit(){
-        
-        return view('admin.subject.edit');
+        $subjects= Subject::orderBy('id', 'desc')->paginate('12');
+        return view('admin.subject.edit',compact('subjects'));
     }
     
     public function delete(){
-        
-        return view('admin.subject.delete');
+        $subjects= Subject::orderBy('id', 'desc')->paginate('12');
+        return view('admin.subject.delete',compact('subjects'));
     }
 }

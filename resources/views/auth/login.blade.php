@@ -1,8 +1,12 @@
-<x-guest-layout>
-    <x-auth-card>
+<x-guest-layout > 
+
+            <x-auth-card>
+        
+            
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+           
+                <img src="{{ asset('/images/logo/lms.png') }} " width="100px" height=" 100px" align="center" />
             </a>
         </x-slot>
 
@@ -14,6 +18,12 @@
 
         <form method="POST" action="{{ route('login') }}">
             @csrf
+            <div class="nav-profile-image" >
+                 <div class= "text-center">
+             
+            
+</div>
+             </div>
 
             <!-- Email Address -->
             <div>
@@ -52,5 +62,7 @@
                 </x-button>
             </div>
         </form>
+        
+
     </x-auth-card>
 </x-guest-layout>

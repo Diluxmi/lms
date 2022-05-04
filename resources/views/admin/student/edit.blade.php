@@ -17,7 +17,7 @@
                     {{ session('error') }}
                 </div>
                 @endif
-                {!! Form::open()->fill($student)->route('student.update',[$student->id])->method('patch') !!}
+                {!! Form::open()->fill($students)->route('student.update',[$student->id])->method('patch') !!}
                 @include('admin.student._form')
                 <div class="row">
                     <div class="col-12">

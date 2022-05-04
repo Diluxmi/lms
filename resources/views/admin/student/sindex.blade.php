@@ -12,6 +12,13 @@
            
         </div>
         <br>
+
+        <div class="card-body">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
         <table class="table ">
                 <thead class="thead-dark">
                     <tr>
@@ -42,7 +49,7 @@
                 </tbody>
                 
             </table>
-            
+</div>
       </div>
       </div>
       </div>

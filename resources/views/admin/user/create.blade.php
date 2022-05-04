@@ -22,8 +22,8 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="float-right">
-                        <button class="btn btn-success btn-md">Create</button>
-                        <a class="btn btn-dark btn-md" href="{{ route('user.index') }}"><i class="mdi mdi-cancel"></i>Cancel</a>
+                        <button class="btn btn-primary">Create</button>
+                        <a class="btn btn-dark btn-md" href="{{ route('user.index') }}">Cancel</a>
                         </div>
                     </div>
                 </div>

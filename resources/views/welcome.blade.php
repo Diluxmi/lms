@@ -1,8 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        
-  
+
+
+    <div class='head'>
+        <div class="text-align: center">
+        <h1> CP/GP Galaboda T.V<h2>
+</div>
+</div>
+</head>
+    <body>
+    
     
         <div class="relative flex items-top justify-center min-h-screen bg-gray-100 dark:bg-gray-900 sm:items-center py-4 sm:pt-0">
             @if (Route::has('login'))
@@ -17,9 +24,11 @@
                     @endauth
                 </div>
             @endif
+            <div class=''>
                 </div>
             </div>
-        </div>
-        <div>
+       
     </body>
+    
+    
 </html>

@@ -6,4 +6,7 @@
     <link href="{{ asset('css/demo_1/style.css') }}" rel="stylesheet">
     <link href="{{ asset('vendors/images/favicon.png') }}" rel="stylesheet">
 
+    
+   
+
 

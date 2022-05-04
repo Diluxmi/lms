@@ -16,14 +16,13 @@ class CreateExamsTable extends Migration
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
             $table->enum('type',['term1','term2','term3']);
-            $table->string('schedule');
-            $table->string('paper_uplode');
-            $table->string('answer_uplode');
+            $table->string('subject');
             $table->string('result');
+            $table->foreignId('student_id')->nullable();
             
             $table->timestamps();
           
-           
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
 
         });
     }

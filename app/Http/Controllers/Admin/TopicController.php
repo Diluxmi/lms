@@ -6,6 +6,7 @@ use App\Http\Requests\Admin\TopicStoreRequest;
 use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\Subject;
+use App\Models\Role;
 use Illuminate\Support\Facades\Auth;
 class TopicController extends Controller
 {
@@ -14,9 +15,9 @@ class TopicController extends Controller
      return view('admin.topic.index',compact('subject','topics'));
  }
  public function create(Subject $subject){
-   
+    
      $roles= Role::where('name','==','teacher')->pluck('name','id')->toArray();
-    return view('admin.topic.create',compact('subject'.'roles'));
+    return view('admin.topic.create',compact('subject','roles'));
 } 
 public function store(Subject $subject,TopicStoreRequest $request){
     $data = $request->validated();

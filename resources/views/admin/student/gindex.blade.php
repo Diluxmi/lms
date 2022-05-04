@@ -5,9 +5,10 @@
   <div class="col-12 text-dark">
     <div class="card shadow p-3 mb-5 bg-white rounded border-info">
       <div class="card-header rounded border-primary">
-        <div class="float-left">
+        <div class="float-start">
           <h2>Student</h2>
     </div>
+    
 </div>
            
       
@@ -23,6 +24,7 @@
                <tbody>
                <tr>
                {!! Form::open()->route('student.sindex')->method('get') !!}
+               
                <td>
                
                {!! Form::select( 'grade_section', 'Grade Section')->options($grades)!!}

@@ -10,14 +10,21 @@
           <h2>Subject</h2>
     </div>
         <div class ="float-end">
-          @if(Auth::user()->role->name=='teacher'){
+          @if(Auth::user()->role->name=='Teacher')
     <a class="btn btn-primary btn-icon-spilt" href ="{{ route('subject.create') }}"> Create Subject</a>
-          }
+          
     @endif
         </div>
 </div>
         <br>
-        <table class="table-striped">
+
+        <div class="card-body">
+    @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+    @endif
+        <table class="table">
                 <thead class="thead-dark">
                     <tr>
                         <th> Subject Name</th>
@@ -38,12 +45,12 @@
                            
                             
                             <td>
-                               @if(Auth::user()->role->name=='teacher'){
-                                <a href="{{ route('subject.edit',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Edit</span></a>
-                                <a href="{{ route('subject.delete',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Delete</span></a>
-                               }@else
-                                <a href="{{ route('topic.index',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Topics</span></a>
-                              @endif
+                               @if(Auth::user()->role->name=='Teacher')
+                                <a href="{{ route('subject.edit',$subject->id)}}" class="btn btn-dark"><span class="text">Edit</span></a>
+                                <a href="{{ route('subject.delete',$subject->id)}}" class="btn btn-danger"><span class="text">Delete</span></a>
+                                @endif
+                                <a href="{{ route('topic.index',$subject->id)}}" class="btn btn-primary"><span class="text">Topics</span></a>
+                             
                               </td>
                                
                         </tr>
@@ -51,7 +58,7 @@
                 </tbody>
                 
             </table>
-            
+</div>
       </div>
       </div>
       </div>

@@ -1,4 +1,4 @@
-<div id="name" class="d-none">
+<div id="name" class="Horizontal form layout">
 <div  class="row">
     
 <div class = "col-md-2">

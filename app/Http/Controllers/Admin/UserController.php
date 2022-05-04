@@ -62,7 +62,7 @@ class UserController extends Controller
         ]);
 
         
-        return redirect()->route('teacher.index')->with('success','user create succesfull');
+        return redirect()->route('teacher.index')->with('success','Teacher create succesfull');
     }
     
 }
