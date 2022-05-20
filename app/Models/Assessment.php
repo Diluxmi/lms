@@ -5,18 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class assessment extends Model
+class Assessment extends Model
 {
     use HasFactory;
     protected $fillable = [
         'type',
-        'grade',
         'section',
-        'index_no',
-        'subject',
-        'paper_upload',
-        'answer_upload',
-        'result',
+        'grade',
+        'subject_id',
+        
 
        
     ];
@@ -24,7 +21,8 @@ class assessment extends Model
     'grade_section',
 
     ];
-    public function student(){
-        return $this->belongsTo(Student::class,'student_id');
+   
+    public function subject(){
+        return $this->belongsTo(Subject::class,'subject_id');
     }
 }

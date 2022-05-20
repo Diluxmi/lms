@@ -18,11 +18,13 @@ class CreateSubjectsTable extends Migration
             $table->string('subject');
             $table->string('grade');
             $table->string('section');
+            $table->foreignId('student_id')->nullable();
             $table->foreignId('created_by');
+           
            
 
             $table->timestamps();
-            $table->foreign('created_by')->references('id')->on('teachers')->onDelete('cascade');
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
             
 
             

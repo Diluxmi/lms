@@ -25,16 +25,17 @@
     </div>
     @endif
         <table class="table">
-                <thead class="thead-dark">
+                <div class="text-dark">
                     <tr>
-                        <th> Subject Name</th>
-                        <th>Grade</th>
-                        <th>Section</th>
-                        
+                      
+                        <th><h5>Subject Name</h5></th>
+                        <th><h5>Grade</h5></th>
+                        <th><h5>Section</h5></th>
+
                         <th></th>
                     </tr>
                     
-                    </thead>  
+</div>  
                <tbody>
                
                <tr>

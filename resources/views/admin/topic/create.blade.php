@@ -13,6 +13,14 @@
             </div>
             <div class="card-body">
                
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
+                
+
+
                 {!! Form::open()->route('topic.store',[$subject->id])->method('post') !!}
                 @include('admin.topic._form')
                 <div class="row">

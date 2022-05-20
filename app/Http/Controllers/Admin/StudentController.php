@@ -80,26 +80,28 @@ class StudentController extends Controller
 }
 
 public function show(Student $student){
-    return view('admin.student.show',compact('student')); 
+    $grade_section =$student->grade.$student->section;
+    return view('admin.student.show',compact('student','grade_section')); 
 
 } 
 
 public function edit(Student $student){
-    $students= Student::with('user')->orderBy('id','desc')->paginate('12');
+    $grade_section =$student->grade.$student->section;
     
-    return view('admin.student.edit',compact('students')); 
+    return view('admin.student.edit',compact('student','grade_section')); 
 }
 
-public function update(UserUpdateRequest $request,Student $student){
+public function update(Student $student,UserUpdateRequest $request){
     $grade_section =$student->grade.$student->section;
     $data=$request->validated();
     $student->update($data);
         
-            return redirect()->route('student.sindex', $grade_section)->with('success', 'Your Profile Updated!');
+            return redirect()->route('student.sindex', $grade_section,$student)->with('success', 'Your Profile Updated!');
         }
 
 public function delete(Student $student){
-    return view('admin.student.delete',compact('student'));
+    $grade_section =$student->grade.$student->section;
+    return view('admin.student.delete',compact('student','grade_section'));
 }
 
 public function destroy(Student $student){

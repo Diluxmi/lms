@@ -29,8 +29,10 @@ class Subject extends Model
                     return $this->hasOne(Topic::class,'topic_id');
                     }
 
-
+                    public function exam(){
+                        return $this->hasOne(Exam::class,'exam_id');
         }
+    }
     
     
 

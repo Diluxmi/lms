@@ -5,12 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class subtopics extends Model
+class SubTopic extends Model
 {
     use HasFactory;
     protected $fillable=[
         'subtopicname',
-        'content'
+        'content',
+        'filename',
+        'extension',
+        'actual_filename',
+        'topic_id'
     ];
     public function topic(){
         return $this->belongsTo(Topic::class, 'topic_id');

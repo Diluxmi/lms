@@ -12,9 +12,9 @@
                 </div>
             </div>
             <div class="card-body">
-                @if (session('error'))
-                <div class="alert alert-warning">
-                    {{ session('error') }}
+                @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
                 </div>
                 @endif
                 {!! Form::open()->route('student.store')->method('post') !!}

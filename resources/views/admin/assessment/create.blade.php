@@ -8,7 +8,7 @@
         <div class="card">
             <div class="card-header">
                 <div class="float-left">
-                    <h2>Create Exam Result </h2>
+                    <h2>Create Assessment Result </h2>
                 </div>
             </div>
             <div class="card-body">

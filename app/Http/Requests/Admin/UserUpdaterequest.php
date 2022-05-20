@@ -25,8 +25,9 @@ class UserUpdateRequest extends FormRequest
      */
     public function rules()
     {
-       $teacher=$this->teacher->user;
         $student=$this->student->user;
+       $teacher=$this->teacher->user;
+        
         $user=$this->user;
         $rule = [];
     

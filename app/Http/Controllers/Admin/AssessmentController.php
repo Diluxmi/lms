@@ -8,44 +8,43 @@ use Illuminate\Http\Request;
 use App\Models\Assessment;
 use App\Models\Role;
 use App\Models\User;
-use App\Models\Student;
+use App\Models\Subject;
 
 
 class AssessmentController extends Controller
 {
-    
     public function index(){
-      
-        $assessments = Assessment::with('student')->orderBy('id','desc')->paginate('12');
-        return view('admin.assessment.index',compact('assessments'));
-     }
-         
-
-public function create(){
-   
-    $indexs=Student::with('assessment')->pluck('index_no','index_no')->toArray();
-    return view('admin.assessment.create',compact('indexs'));
-}
-
-public function store(AssessmentStoreRequest $request){
-        
-    $data = $request->validated();
+        $subjects=Subject::pluck('subject','id')->toArray();
+        //$grades=Subject::pluck('grade','id',)->toArray();
+       // $sections=Subject::pluck('section','id')->toArray();
+          $assessments = Assessment::orderBy('id','desc')->paginate('12');
+          return view('admin.assessment.index',compact('assessments','subjects'));
+       }
+           
+  
+  public function create(){
+     
+      $indexs=Student::with('exam')->pluck('index_no','index_no')->toArray();
+     
+      return view('admin.exam.create',compact('indexs'));
+  }
+  
+  
+  
+  public function dropdown(Request $request){
+     
+     $assessment=new Assessment();
+     
+          $assessment->type=$request->term;
+          $assessment->subject_id=$request->subject;
+          $assessment->grade=$request->grade;
+          $assessment->section=$request->section;
+          $assessment->save();
+  
+  return   response()->json(['success'=>'data added']);
+  }
+  
     
-    Assessment :: create ([
-        'type'=>$data['type'],
-        'subject'=>$data['subject'],
-        'result'=>$data['result'],
-    ]);
-
-    Student::create([
-        'grade'=>$data['grade'],
-        'section'=>$data['section'],
-        'index_no'=>$data['index_no'],
-    ]);
-    
-    return redirect()->route('assessment.index')->with(' success','Assessment result create succesfull');
-}
-
 public function edit(){
 return view('admin.assessment.edit');
 }

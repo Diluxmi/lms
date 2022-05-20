@@ -14,7 +14,13 @@
             </div>
 
             <div class="card-body">
-      
+            @if (session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+                @endif
+              
+
                 {!!Form::open()->route('subject.store')->method('post')!!}
                 @include('admin.subject._form')
                 <div class="row">

@@ -17,13 +17,13 @@
                     {{ session('error') }}
                 </div>
                 @endif
-                {!! Form::open()->fill($subtopic)->route('student.update',[$student->id])->method('patch') !!}
-                @include('admin.student._form')
+                {!! Form::open()->fill($topic)->route('subtopic.update',[$subject->id,$topic->id,$subtopic->id])->method('patch') !!}
+                @include('admin.subtopic._form')
                 <div class="row">
                     <div class="col-12">
                         <div class="float-right">
                         <button class="btn btn-success btn-md"><i class="mdi mdi-floppy"></i>Update</button>
-                        <a class="btn btn-dark btn-md" href="{{ route('student.sindex') }}"><i class="mdi mdi-cancel"></i>Cancel</a>
+                        <a class="btn btn-dark btn-md" href="{{ route('subtopic.index',[$subject->id,$topic->id,$subtopic->id]) }}"><i class="mdi mdi-cancel"></i>Cancel</a>
                         </div>
                     </div>
                 </div>

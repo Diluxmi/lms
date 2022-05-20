@@ -11,12 +11,23 @@
                 </div>
             </div>
             <div class="card-body">
-                {!! Form::open()->route('topic.destroy',[$subject->id])->method('delete') !!}
-           
-            <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i> Delete </button>
-<a href="{{ route('topic.index',$subject->id)}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
 
-{!! Form::close() !!}
+            <div class="card-body">
+
+@if (session('success'))
+<div class="alert alert-success">
+{{ session('success') }}
+</div>
+@endif
+
+        {!! Form::open()->route('topic.destroy',[$subject->id,$topic->id])->method('delete') !!}
+           <div class="float-start">
+                <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i> Delete </button>
+            </div>
+            <div class="float-end">
+                <a href="{{ route('topic.index',[$subject->id,$topic->id])}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
+            </div>
+        {!! Form::close() !!}
         </div>
     </div>
 </div>

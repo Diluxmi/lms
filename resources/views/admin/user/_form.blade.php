@@ -1,4 +1,4 @@
-<div id="name" class="Horizontal form layout">
+<div id="name" class="Basic form elements">
 <div  class="row">
     
 <div class = "col-md-2">
@@ -61,7 +61,7 @@
 <div class="col-md-6">
 {!! Form::text('password_confirmation', 'Confirm Password')->type('password') !!}</div>
 </div>
-
+</div>
 
 @section('js')
 <script >

@@ -8,7 +8,7 @@
     <div class="card shadow p-3 mb-5 bg-white rounded border-info">
       <div class="card-header rounded border-primary">
         <div class="float-start">
-          <h2>Assessment Result</h2>
+          <h2>Exam Result</h2>
         </div>
         <div class="float-end">  </div>
       </div>
@@ -33,6 +33,7 @@
     <div class = "col-md-2">
       <div id=#inp-section>{!! Form::select('section','Section')->options(['A'=>'A','B'=>'B','C'=>'C','D'=>'D','E'=>'E'])!!}</div>
     </div>
+   
     <div class = "col-md-2">
         <div ><br><button class = "btn btn-primary" id="save-item-btn"> Create</button></div>
     </div>
@@ -56,23 +57,25 @@
                         <th>Grade</th>
                         <th>Section</th>
                         <th>Subject</th>
+                      
                        
                         
                     </tr>
                     
                      
                <tbody>
-               @foreach($assessments as $assessment)
+               @foreach($exams as $exam)
                <tr>
           
-               <td> {{$assessment->type}}</td>
-              <td>{{$assessment->grade}}</td>
-             <td>{{$assessment->section}}</td>
-             <td>{{$assessment->subject->subject}}</td>
+               <td> {{$exam->type}}</td>
+              <td>{{$exam->grade}}</td>
+             <td>{{$exam->section}}</td>
+             <td>{{$exam->subject->subject}}</td>
+             
             
-             <td>
-                  <a href="{{route('assessment.create')}}" class="btn btn-primary"><span class="text">Add Result</span></a>
-                  <a href="{{route('assessment.delete')}}" class="btn btn-danger"><span class="text">Delete</span></a>
+                  <td>
+                  <a href="{{route('exam.create',[$exam->grade,$exam->section])}}" class="btn btn-primary"><span class="text">Add Result</span></a>
+                  <a href="{{route('exam.delete')}}" class="btn btn-danger"><span class="text">Delete</span></a>
                   <td>
                   
                 </td>  
@@ -109,7 +112,7 @@
               
 
       $.ajax({
-                url: "{{ route('get.assessment')}}",
+                url: "{{ route('get.exam')}}",
                 type: 'POST',
                 data : { term:$('#inp-term').val(), subject:$('#inp-subject').val(), grade:$('#inp-grade').val(), section:$('#inp-section').val()},
             success: function(data){

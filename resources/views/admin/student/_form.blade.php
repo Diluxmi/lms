@@ -1,3 +1,4 @@
+<div id="name" class="Basic form elements">
 
 <div  class="row">
     
@@ -42,7 +43,7 @@
 {!! Form::text('index_no', 'Index No')!!}</div>
 </div>
 </div>
-
+</div>
 @section('js')
 <script>
    

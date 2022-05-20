@@ -94,7 +94,15 @@ class UserController extends Controller
     }
 
     public function destroy(User $user){
-        $user->delete();
-        return redirect()->route('user.index')->with('success', 'User details has been deleted successfuly!');
-    }
-}
+        if($user->role_id==1){
+            $count=User::where('role_id',1)->count();
+                 if($count>1){
+                     $user->delete();
+                     return redirect()->route('user.index')->with('success','user details has been deleted successfully');
+                            }
+                                 else{
+                                 return redirect()->back()->with('error', 'You cannot delete these account!');
+                                     }
+                            }
+                     }
+                    }

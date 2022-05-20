@@ -24,28 +24,18 @@
 
     
         
-        <tr>
-            
-            <th>Sdudent id: 3</th><br>
-            <th>Name: abi</th><br>
-            <th>Email : abi@gmail.com</th></br>
-            
-            <th>Grade:7B</th>
-           
-            
-        </tr>
         
    
 
 
-                {!! Form::open()->route('student.destroy',[$student->id])->method('delete') !!}
-                <div class = "float-left"> 
-            <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i> Delete </button></div>
+         {!! Form::open()->route('student.destroy',[$student->id])->method('delete') !!}
+            <div class = "float-start"> 
+                <button class="btn btn-danger btn-md float-right"><i class="mdi mdi-delete"></i> Delete </button></div>
             <div class = "float-end">
-<a href="{{ route('student.sindex')}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
-</div>
-{!! Form::close() !!}
-        </div>
+                <a href="{{ route('student.sindex',$grade_section)}}" class="btn btn-info btn-icon-split"><span class="text">Cancel</span></a>
+            </div>
+        {!! Form::close() !!}
+                </div>
     </div>
 </div>
 </div>

@@ -15,7 +15,11 @@ class CreateExamresultsTable extends Migration
     {
         Schema::create('examresults', function (Blueprint $table) {
             $table->id();
+            $table->string('marks');
+            $table->foreignId('student_id')->nullable();
             $table->timestamps();
+
+            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
         });
     }
 

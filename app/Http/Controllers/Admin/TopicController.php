@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\TopicStoreRequest;
+use App\Http\Requests\Admin\TopicUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Topic;
 use App\Models\Subject;
@@ -30,15 +31,22 @@ public function store(Subject $subject,TopicStoreRequest $request){
        
  return redirect()->route('topic.index',$subject->id)->with('success','Topic create succesfull');
 }
-public function edit(Subject $subject){
-    return view('admin.topic.edit',compact('subject'));
+public function edit(Subject $subject, Topic $topic){
+    
+    return view('admin.topic.edit',compact('subject','topic'));
 }
-public function delete(Subject $subject){
-    return view('admin.topic.delete',compact('subject'));
+
+public function update(Subject $subject, Topic $topic,TopicStoreRequest $request){
+    $data=$request->validated();
+    $topic->update($data);
+    return redirect()->route('topic.index',compact('subject','topic'))->with('success', 'topic has been updated successfuly!');
 }
-public function destroy(Subject $subject){
-    $subject->delete();
-    return redirect()->route('topic.index',$subject->id)->with('success', 'topic has been deleted successfuly!');
+public function delete(Subject $subject, Topic $topic){
+    return view('admin.topic.delete',compact('subject','topic'));
+}
+public function destroy(Subject $subject, Topic $topic){
+        $subject->delete();
+    return redirect()->route('topic.index',$subject->id,compact('subject','topic'))->with('success', 'topic has been deleted successfuly!');
 }
 
 

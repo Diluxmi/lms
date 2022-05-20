@@ -7,10 +7,10 @@
         <div class="card">
             <div class="card-header">
                 <div >
-                <a href="{{route('teacher.index')}}" class="float-left btn btn-primary btn-circle"><i class="fas fa-arrow-left"></i></a>
-                    <h2 class="float-left ml-2">Teacher Details</h2>
+               <a href="{{route('teacher.index')}}" class="float-left btn btn-primary btn-circle"><i class="mdi mdi-arrow-left-bold"></i></a> </div>
+                  <div> <h2 class="float-left ml-2">Teacher Details</h2></div>
                     
-                </div>
+               
                 
             </div>
             <div class="card-body">

@@ -6,58 +6,78 @@ use App\Http\Requests\Admin\ExamStoreRequest;
 use App\Http\Requests\Admin\ExamUpdateRequest;
 use Illuminate\Http\Request;
 use App\Models\Exam;
+use App\Models\Examresult;
 use App\Models\Role;
 use App\Models\Student;
+use App\Models\Subject;
 use Illuminate\Support\Facades\Auth;
 class ExamController extends Controller
 {
-    public function sindex(){
-      
-        $exams = Exam::with('student')->orderBy('id','desc')->paginate('12');
-        return view('admin.exam.sindex',compact('exams'));
+    public function index(){
+      $subjects=Subject::pluck('subject','id')->toArray();
+      $exams = Exam::orderBy('id','desc')->paginate('12');
+     
+        return view('admin.exam.index',compact('exams','subjects'));
      }
          
+public function sindex($grade_section = null){
+    if(empty($grade_section)){
+        $grade=request()->get('grade_section');
+    }else{
+        $grade=$grade_section;
+    }
+
+        switch(strlen($grade)){
+
+             case 2:
+            $number =substr($grade,0,1);
+            $section=substr($grade,1,1);
+           
+        break;
+        
+        case 3:
+            $number=substr($grade,0,2);
+            $section=substr($grade,3,1);
+        break;
+    }
+    $indexs= Student::with('user')->where('grade',$number)->where('section',$section)->pluck('index_no','id')->toArray();
+    $marks= Examresult::pluck('marks','id')->toArray();
+    
+    return view('admin.exam.sindex',compact('indexs','marks'));
+}
+
 
 public function create(){
-   
-    $indexs=Student::with('exam')->pluck('index_no','index_no')->toArray();
-   
-    return view('admin.exam.create',compact('indexs'));
+    $indexs= Student::pluck('index_no','id')->toArray();
+    $marks= Examresult::pluck('marks','id')->toArray();
+    return view('admin.exam.create',compact('indexs','marks'));
 }
 
 
 
 public function dropdown(Request $request){
-$subjects= Subject::where("subject_id",$request->subject)->get();
-return response()->json($subjects);
-}
-
-public function store(ExamStoreRequest $request){
+   
+   $exam=new Exam();
+   
+        $exam->type=$request->term;
+        $exam->subject_id=$request->subject;
+        $exam->grade=$request->grade;
+        $exam->section=$request->section;
         
-    $data = $request->validated();
-    
-    Exam :: create ([
-        'type'=>$data['type'],
-        'subject'=>$data['subject'],
-        'result'=>$data['result'],
-    ]);
+        $exam->save();
 
-    Student::create([
-        'grade'=>$data['grade'],
-        'section'=>$data['section'],
-        'index_no'=>$data['index_no'],
-    ]);
-    
-    return redirect()->route('exam.sindex')->with(' success','Exam result create succesfull');
-}
 
-public function edit(){
-return view('admin.exam.edit');
+
+       
+return   response()->json(['success'=>'data added']);
 }
-public function update(){
-    return view('admin.exam.edit');
-    }
-    public function delete(){
+        public function edit(Exam $exam){
+        return view('admin.exam.edit');
+        }
+        public function update(Exam $exam){
+            return view('admin.exam.edit');
+            }
+    public function delete(Exam $exam){
         return view('admin.exam.delete');
         }
 }

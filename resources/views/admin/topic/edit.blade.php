@@ -17,13 +17,13 @@
                     {{ session('error') }}
                 </div>
                 @endif
-                {!! Form::open()->fill($topic)->route('topic.update',[$topic->id])->method('patch') !!}
+                {!! Form::open()->fill($topic)->route('topic.update',[$subject->id,$topic->id])->method('patch') !!}
                 @include('admin.topic._form')
                 <div class="row">
                     <div class="col-12">
                         <div class="float-right">
                         <button class="btn btn-success btn-md"><i class="mdi mdi-floppy"></i>Update</button>
-                        <a class="btn btn-dark btn-md" href="{{ route('topic.index') }}"><i class="mdi mdi-cancel"></i>Cancel</a>
+                        <a class="btn btn-dark btn-md" href="{{ route('topic.index',$subject->id )}}"><i class="mdi mdi-cancel"></i>Cancel</a>
                         </div>
                     </div>
                 </div>

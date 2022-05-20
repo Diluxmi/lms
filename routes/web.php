@@ -68,63 +68,82 @@ Route::group(['prefix' => 'student',], function () {
 });
 });
 
-Route::group(['prefix' =>'grade',], function () {
-    Route::get('/', 'GradeController@index')->name('grade.index');
-});
+
 
 
 Route::group(['prefix' =>'subject',], function () {
     Route::get('/', 'SubjectController@index')->name('subject.index');
     Route::get('/create','SubjectController@create')->name('subject.create');
     Route::post('/store','SubjectController@store')->name('subject.store');
-    
+
+ 
     Route::group(['prefix' => '{subject}'], function () {
-        Route::get('/', 'TopicController@index')->name('topic.index');
+        Route::get('/topic', 'TopicController@index')->name('topic.index');
         Route::get('/topiccreate','TopicController@create')->name('topic.create');
-        Route::get('/subtopic','SubtopicController@index')->name('subtopic.index');
-        Route::get('/subtopiccreate','SubtopicController@create')->name('subtopic.create');
         Route::post('/topicstore','TopicController@store')->name('topic.store');
-    
-        Route::get('/topicedit','TopicController@edit')->name('topic.edit');
-        Route::get('/topicdelete','TopicController@delete')->name('topic.delete');
-        Route::delete('/topic','TopicController@destroy')->name('topic.destroy');
 
-        Route::get('/edit','SubjectController@edit')->name('subject.edit');
-        Route::patch('/','StudentController@update')->name('subject.update');
-        Route::get('/delete','SubjectController@delete')->name('subject.delete');
-        Route::delete('/','SubjectController@destroy')->name('subject.destroy');
-    });
-});
+        Route::group(['prefix' => '{topic}'], function () {
+            Route::get('/sub', 'SubTopicController@index')->name('subtopic.index');
+            Route::get('/subtopiccreate','SubTopicController@create')->name('subtopic.create');
+            Route::post('/subtopicstore','SubTopicController@store')->name('subtopic.store');
+            
+                Route::group(['prefix' => '{subtopic}'], function () {
+                    Route::get('/subtopicshow','SubTopicController@show')->name('subtopic.show');
+                    Route::get('/subtopicdownload','SubTopicController@download')->name('subtopic.download');
+                    Route::get('/editsubtopic','SubtopicController@edit')->name('subtopic.edit');
+                    Route::patch('/subupdate','SubtopicController@update')->name('subtopic.update');
+                    Route::get('/delete','SubtopicController@delete')->name('subtopic.delete');
+                    Route::delete('/','SubtopicController@destroy')->name('subtopic.destroy');
+                    });
 
+        });
 
-
-   
-
+            Route::group(['prefix' => '{topic}'], function () {
+                Route::get('/topicedit','TopicController@edit')->name('topic.edit');
+                Route::patch('/topicupdate','TopicController@update')->name('topic.update');
+                Route::get('/topicdelete','TopicController@delete')->name('topic.delete');
+                Route::delete('/topic','TopicController@destroy')->name('topic.destroy');
+                
+            });
+            });
+         Route::group(['prefix' => '{subject}'], function () {
+            Route::get('/edit','SubjectController@edit')->name('subject.edit');
+            Route::patch('/update','SubjectController@update')->name('subject.update');
+            Route::get('/delete','SubjectController@delete')->name('subject.delete');
+            Route::delete('/','SubjectController@destroy')->name('subject.destroy');
+            });
+        });
 
 Route::group(['prefix' =>'exam',], function () {
-    Route::get('/', 'ExamController@sindex')->name('exam.sindex');
+    Route::get('/', 'ExamController@index')->name('exam.index');
+    Route::get('/sindex', 'ExamController@sindex')->name('exam.sindex');
     Route::get('/exam create', 'ExamController@create')->name('exam.create');
+    Route::post('ajaxrequest','ExamController@dropdown')->name('get.exam');
     Route::post('/store','ExamController@store')->name('exam.store');
+    
 
-Route::get('/drop1','ExamController@dropdown')->name('get.subject');
+    Route::group(['prefix' => ''], function () {
 
     Route::get('/edit','ExamController@edit')->name('exam.edit');
     Route::patch('/up','ExamController@update')->name('exam.update');
     Route::get('/delete','ExamController@delete')->name('exam.delete');
     Route::delete('/','ExamController@destroy')->name('exam.destroy');
 });
+});
 
 
 Route::group(['prefix' =>'assessment',], function () {
     Route::get('/', 'AssessmentController@index')->name('assessment.index');
     Route::get('/Assessment create', 'AssessmentController@create')->name('assessment.create');
+    Route::post('ajaxrequest','AssessmentController@dropdown')->name('get.assessment');
     Route::post('/store','AssessmentController@store')->name('assessment.store');
+    Route::group(['prefix' => ''], function () {
 
     Route::get('/edit','AssessmentController@edit')->name('assessment.edit');
     Route::patch('/up','AssessmentController@update')->name('assessment.update');
     Route::get('/delete','AssessmentController@delete')->name('assessment.delete');
     Route::delete('/','AssessmentController@destroy')->name('assessment.destroy');
-
+    });
 });
 
 Route::group(['prefix' =>'report',], function () {

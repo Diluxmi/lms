@@ -8,7 +8,7 @@
             <div class="card-header">
                 <div >
                     @if(Auth::user()->role->name == 'Admin' && $user->id != Auth::user()->id )
-                    <a href="{{route('user.index')}}" class="float-left btn btn-primary btn-circle"><i class="fas fa-arrow-left"></i></a>
+                    <a href="{{route('user.index')}}" class="float-left btn btn-primary btn-circle"><i class="mdi mdi-arrow-left-bold"></i></a>
                     <h2 class="float-left ml-2">User Details</h2>
                     @else
                     <h2 class="float-left ml-2">Your Profile</h2>

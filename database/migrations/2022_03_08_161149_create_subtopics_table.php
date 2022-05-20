@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateSubtopicsTable extends Migration
+class CreateSubTopicsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,13 @@ class CreateSubtopicsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subtopics', function (Blueprint $table) {
+        Schema::create('sub_topics', function (Blueprint $table) {
             $table->id();
             $table->string('subtopicname');
             $table->text('content');
+            $table->string('filename')->nullable();
+            $table->string('actual_filename')->nullable();
+            $table->string('extension')->nullable();           
             $table->foreignID('topic_id');
 
             $table->timestamps();
@@ -32,6 +35,6 @@ class CreateSubtopicsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subtopics');
+        Schema::dropIfExists('sub_topics');
     }
 }

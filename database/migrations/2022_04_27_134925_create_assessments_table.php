@@ -16,13 +16,13 @@ class CreateAssessmentsTable extends Migration
         Schema::create('assessments', function (Blueprint $table) {
             $table->id();
             $table->enum('type',['term1','term2','term3']);
-            $table->string('subject');
-            $table->string('result');
-            $table->foreignId('student_id')->nullable();
+            $table->string('grade');
+            $table->string('section');
+            $table->foreignId('subject_id')->nullable();
             $table->timestamps();
      
-            $table->foreign('student_id')->references('id')->on('students')->onDelete('cascade');
-
+            
+            $table->foreign('subject_id')->references('id')->on('subjects')->onDelete('cascade');
         });
 
         

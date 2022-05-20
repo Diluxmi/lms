@@ -10,9 +10,7 @@
                 <div class="col mr-2">
                     <div class="text-xs font-weight-bold text-primary text-uppercase mb-1"><h3>
                     LMS  FOR  Cp/Gp/Galaboda T.V </h3></div>
-                    <div class="float-end">
-                        <a class="btn btn-primary btn-icon-spilt" href ="{{ route('student.create') }}"> Create Student</a>
-                    </div> 
+        
                    </div>
                   <div class="col-auto">   
                 </div>

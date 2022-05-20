@@ -47,7 +47,7 @@
 
      
             <li class="nav-item">
-            <a class="nav-link" href="{{route('exam.sindex')}}"> <i class="mdi mdi-pencil"></i>
+            <a class="nav-link" href="{{route('exam.index')}}"> <i class="mdi mdi-pencil"></i>
               <span class="menu-title">Exam</span>
             </a>
           </li>
@@ -60,9 +60,31 @@
 
           <li class="nav-item">
             <a class="nav-link" href=""> <i class="mdi mdi"></i>
-              <span class="menu-title">Signout</span>
+              <span class="menu-title">Log Out</span>
             </a>
           </li>
+
+          <li class="nav-item ">
+             
+                <a class="nav-link dropdown-toggle" id="profileDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                
+                <div class="nav-profile-text"><span class="menu-title">SignOut</span></div>
+
+                </a>
+               
+                <div class="dropdown-menu center navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-cached mr-2 text-success"></i> Activity Log </a>
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                              onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                  <i class="mdi mdi-logout mr-2 text-primary"></i> Logout </a>
+                
+                </div>
+              </li>
           
         </ul>
       </nav>

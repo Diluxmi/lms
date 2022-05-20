@@ -26,10 +26,9 @@ class ExamStoreRequest extends FormRequest
        
                 return [
                     'type'=>'required',
-                    'grade'=>'required',
-                    'section'=>'required',
+                  
                     'subject'=>'required',
-                    'index_no' => 'required|unique:students',
+                   
                     'result'=>'required',
                     
                 ];
